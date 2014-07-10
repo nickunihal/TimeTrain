@@ -1,0 +1,25 @@
+<div class="page-container">
+	<h1><%= image_tag("logo_white.png", class: "logo") %></h1>
+	<% flash.each do |name, msg| %>
+	  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+	<% end %>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	  <%= devise_error_messages! %>
+	  <% f.label :email %>
+	  <%= f.email_field :email, placeholder: "Email", autofocus: true %>
+	  <% f.label :password %>
+	  <%= f.password_field :password, placeholder: "Password", autocomplete: "off", required: true %>
+	  <% if devise_mapping.rememberable? -%>
+	    <div class="check_box" align="left">
+	      <%= f.check_box :remember_me %>
+	      <%= f.label :remember_me %>
+	    </div>
+	  <% end -%>
+	  <button> Sign me in
+	  <% f.submit "Sign in" %>
+	</button>
+	<% end %>
+	<div class="signup">
+	  <%= render "devise/shared/links" %>
+	</div>
+</div>

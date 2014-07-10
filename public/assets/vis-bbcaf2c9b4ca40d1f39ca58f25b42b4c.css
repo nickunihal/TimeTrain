@@ -1,0 +1,365 @@
+/* line 1, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.timeline_container {
+  margin: 100px auto 0 auto;
+  width: 305px;
+}
+
+/* line 9, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline.root {
+  position: relative;
+  border: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* line 19, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .vispanel {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* line 27, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .vispanel.center {
+  border: 8px #fff;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  overflow: hidden;
+}
+
+/* line 38, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .vispanel.left,
+.vis.timeline .vispanel.right,
+.vis.timeline .vispanel.top,
+.vis.timeline .vispanel.bottom {
+  border: none;
+}
+
+/* line 43, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .background {
+  overflow: hidden;
+}
+
+/* line 47, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .vispanel > .content {
+  position: relative;
+}
+
+/* line 51, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .vispanel .shadow {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  /* TODO: find a nice way to ensure shadows are drawn on top of items
+  z-index: 1;
+  */
+}
+
+/* line 61, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .vispanel .shadow.top {
+  top: -1px;
+  left: 0;
+}
+
+/* line 66, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .vispanel .shadow.bottom {
+  bottom: -1px;
+  left: 0;
+}
+
+/* line 71, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .labelset {
+  position: relative;
+  margin-top: 2px;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* line 81, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .labelset .vlabel {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* line 91, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .labelset .vlabel {
+  border-bottom: none;
+}
+
+/* line 95, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .labelset .vlabel:last-child {
+  border-bottom: none;
+}
+
+/* line 99, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .labelset .vlabel .inner {
+  display: inline-block;
+  padding: 5px;
+}
+
+/* line 104, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .labelset .vlabel .inner.hidden {
+  padding: 0;
+}
+
+/* line 109, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .itemset {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* line 118, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .itemset .background,
+.vis.timeline .itemset .foreground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 124, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .axis {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  left: 1px;
+  z-index: 1;
+}
+
+/* line 132, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .foreground .group {
+  position: relative;
+  border-bottom: none;
+}
+
+/* line 137, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .foreground .group:last-child {
+  border-bottom: none;
+}
+
+/* line 142, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item {
+  position: absolute;
+  color: #1A1A1A;
+  background: none;
+  cursor: pointer;
+  border-width: 0;
+  background-color: none;
+  display: inline-block;
+  padding: 5px;
+}
+
+/* line 153, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.point {
+  color: #909090;
+}
+
+/* line 154, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.gpoint {
+  color: #D34836;
+}
+
+/* line 155, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.tpoint {
+  color: #4099FF;
+}
+
+/* line 156, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.fpoint {
+  color: #3B5998;
+}
+
+/* line 158, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.dot {
+  position: absolute;
+  padding: 0;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: inherit;
+}
+
+/* line 168, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.range,
+.vis.timeline .item.rangeoverflow {
+  border-style: solid;
+  border-radius: none;
+  box-sizing: border-box;
+}
+
+/* line 175, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.range .content,
+.vis.timeline .item.rangeoverflow .content {
+  position: relative;
+  display: inline-block;
+}
+
+/* line 180, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.range .content {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* line 185, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.line {
+  padding: 0;
+  position: absolute;
+  width: 0;
+  border-left-width: none;
+  border-left-style: solid;
+}
+
+/* line 193, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item .content {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* line 198, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item .delete {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  right: -24px;
+  cursor: pointer;
+}
+
+/* line 208, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.range .drag-left,
+.vis.timeline .item.rangeoverflow .drag-left {
+  position: absolute;
+  width: 24px;
+  height: 100%;
+  top: 0;
+  left: -4px;
+  cursor: w-resize;
+  z-index: 10000;
+}
+
+/* line 220, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.range .drag-right,
+.vis.timeline .item.rangeoverflow .drag-right {
+  position: absolute;
+  width: 24px;
+  height: 100%;
+  top: 0;
+  right: -4px;
+  cursor: e-resize;
+  z-index: 10001;
+  /* a little higher z-index than .drag-left */
+}
+
+/* line 231, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .timeaxis {
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 236, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .timeaxis.foreground {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* line 242, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .timeaxis.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 250, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .timeaxis .text {
+  position: absolute;
+  color: #fff;
+  padding: 3px;
+  white-space: nowrap;
+}
+
+/* line 257, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .timeaxis .text.measure {
+  position: absolute;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  visibility: hidden;
+}
+
+/* line 266, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .timeaxis .grid.vertical {
+  position: absolute;
+  width: 0;
+  border-right: none;
+}
+
+/* line 272, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .timeaxis .grid.minor {
+  border-color: #e5e5e5;
+}
+
+/* line 276, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .timeaxis .grid.major {
+  border-color: #bfbfbf;
+}
+
+/* line 280, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .currenttime {
+  background-color: #FF7F7F;
+  width: 2px;
+  z-index: 1;
+}
+
+/* line 285, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .customtime {
+  background-color: #6E94FF;
+  width: 2px;
+  cursor: move;
+  z-index: 1;
+}
+
+/* line 291, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline.root {
+  -webkit-transition: height .4s ease-in-out;
+  transition: height .4s ease-in-out;
+}
+
+/* line 296, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .vispanel {
+  -webkit-transition: height .4s ease-in-out, top .4s ease-in-out;
+  transition: height .4s ease-in-out, top .4s ease-in-out;
+}
+
+/* line 301, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .axis {
+  -webkit-transition: top .4s ease-in-out;
+  transition: top .4s ease-in-out;
+}
+
+/* line 308, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item {
+  -webkit-transition: top .4s ease-in-out;
+  transition: top .4s ease-in-out;
+}
+
+/* line 313, /home/intern500/tt_elements/timet/timetrain/app/assets/stylesheets/vis.css.scss */
+.vis.timeline .item.line {
+  -webkit-transition: height .4s ease-in-out, top .4s ease-in-out;
+  transition: height .4s ease-in-out, top .4s ease-in-out;
+}

@@ -1,0 +1,17 @@
+<div class="page-container">
+	<h1><%= image_tag("logo_white.png", class: "logo") %></h1>
+	<h2>Forgot your password?</h2>
+	<p>Don't worry, everybody forget passwords.</p>
+
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	  <%= devise_error_messages! %>
+
+	  <div><% f.label :email %>
+	  <%= f.email_field :email, placeholder: "Enter your email here", autofocus: true %></div>
+
+	  <button>Submit<% f.submit "Send me reset password instructions" %></button>
+	<% end %>
+	<div class="signup">
+		<%= link_to "Click here to Sign in", new_member_session_path, method: :get %>
+	</div>
+</div>

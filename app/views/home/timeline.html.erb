@@ -1,0 +1,93 @@
+<body onload="hideWid();">
+
+  <script type="text/javascript">
+    function hideWid() {
+
+      <% current_member.google_models.each do |post| %>
+        document.getElementById('<%= post.id %>').style.display = 'none';
+      <% end %>
+      <% current_member.twitter_models.each do |post| %>
+        document.getElementById('<%= post.id %>').style.display = 'none';
+      <% end %>
+    }
+    window.document.onkeydown = function (e)
+      {
+        if (!e) e = event;
+        if (e.keyCode == 27)
+          hideWid();
+      }
+  </script>
+  <%= image_tag("logo_white.png", class: "logo") %>
+  <div class="menu">
+    <input type="button" id="zoomIn" title="Zoom in"/>
+    <input type="button" id="zoomOut" title="Zoom out"/>
+    <input type="button" id="moveLeft" title="Move left"/>
+    <input type="button" id="moveRight" title="Move right"/>
+    <a href="/members/update_timeline">
+      <input type="button" id="reset" title="Refresh timeline"/>
+    </a>
+  </div>
+   
+  <div id="visualization"></div>
+  <script type="text/javascript">
+    //show / hide widgets
+    function showpost(id) {
+
+      var p = document.getElementById(id);
+      if(p.style.display == 'block')
+        p.style.display = 'none';
+      else
+        p.style.display = 'block';
+    }
+
+    //html elements creation
+    
+
+    <% current_member.google_models.each do |post| %>
+      var item<%= post.id %> = '<a class="dotlabel" onclick="showpost(\'<%= post.id %>\');">G</a>';
+    <% end %>
+    <% current_member.twitter_models.each do |post| %>
+      var item<%= post.id %> = '<a class="dotlabel" onclick="showpost(\'<%= post.id %>\');">G</a>';
+    <% end %>
+   
+   
+    // DOM element where the Timeline will be attached
+    var container = document.getElementById('visualization');
+   
+    // Create a json evnt data set
+    var items = new vis.DataSet([
+      <% current_member.google_models.each do |post| %>
+        {id: <%= post.id %>, content: item<%= post.id %>, start: '<%= post.create_date %>', type: 'gpoint'},
+      <% end %>
+      <% current_member.twitter_models.each do |post| %>
+          {id: <%= post.id %>, content: item<%= post.id %>, start: '<%= post.create_date.to_s[0...10]+ "T" + 
+                                                                    post.create_date.to_s[11...19] + "Z" %>', type: 'tpoint'},
+      <% end %>
+    ]);
+   
+    // Create a Timeline
+    var timeline = new vis.Timeline(container, items, options);
+   
+    // attach events to the navigation buttons
+    document.getElementById('zoomIn').onclick    = function () { zoom(-0.2); };
+    document.getElementById('zoomOut').onclick   = function () { zoom( 0.2); };
+    document.getElementById('moveLeft').onclick  = function () { move( 0.2); };
+    document.getElementById('moveRight').onclick = function () { move(-0.2); };
+
+  </script>
+   
+  <div class="widgets">
+    <% current_member.twitter_models.each do |post| %>
+      <div class="wid-tweet" id="<%= post.id %>">
+        <blockquote class="twitter-tweet" width="350"><a href="<%= post.urls %>"></a></blockquote>
+      </div>
+    <% end %>
+    <div class="wid-post" id="widget-div"></div>
+
+    <% current_member.google_models.each do |post| %>
+      <div class="wid-post" id="<%= post.id %>">
+        <div class="g-post" data-href="<%= post.urls %>"></div>
+      </div>
+    <% end %>
+  </div>
+ 
