@@ -1,0 +1,316 @@
+.timeline_container{
+  margin: 100px auto 0 auto;
+  width: 305px;
+}
+.vis.timeline {
+}
+
+
+.vis.timeline.root {
+  position: relative;
+  border: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+.vis.timeline .vispanel {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+.vis.timeline .vispanel.center{
+  border: 8px #fff;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  overflow: hidden;
+}
+.vis.timeline .vispanel.left,
+.vis.timeline .vispanel.right,
+.vis.timeline .vispanel.top,
+.vis.timeline .vispanel.bottom {
+  border: none;
+}
+
+
+.vis.timeline .background {
+  overflow: hidden;
+}
+
+.vis.timeline .vispanel > .content {
+  position: relative;
+}
+
+.vis.timeline .vispanel .shadow {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  /* TODO: find a nice way to ensure shadows are drawn on top of items
+  z-index: 1;
+  */
+}
+
+.vis.timeline .vispanel .shadow.top {
+  top: -1px;
+  left: 0;
+}
+
+.vis.timeline .vispanel .shadow.bottom {
+  bottom: -1px;
+  left: 0;
+}
+
+.vis.timeline .labelset {
+  position: relative;
+  margin-top: 2px;
+  width: 100%;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+.vis.timeline .labelset .vlabel {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #fff;
+  
+  box-sizing: border-box;
+}
+
+.vis.timeline .labelset .vlabel {
+  border-bottom: none;
+}
+
+.vis.timeline .labelset .vlabel:last-child {
+  border-bottom: none;
+}
+
+.vis.timeline .labelset .vlabel .inner {
+  display: inline-block;
+  padding: 5px;
+}
+
+.vis.timeline .labelset .vlabel .inner.hidden {
+  padding: 0;
+}
+
+
+.vis.timeline .itemset {
+  position: relative;
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+.vis.timeline .itemset .background,
+.vis.timeline .itemset .foreground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.vis.timeline .axis {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  left: 1px;
+  z-index: 1;
+}
+
+.vis.timeline  .foreground .group {
+  position: relative;
+  border-bottom: none;
+}
+
+.vis.timeline  .foreground .group:last-child {
+  border-bottom: none;
+}
+
+
+.vis.timeline .item {
+  position: absolute;
+  color: #1A1A1A;
+  background: none;
+  cursor: pointer;
+  border-width: 0;
+  background-color: none;
+  display: inline-block;
+  padding: 5px;
+}
+
+.vis.timeline .item.point  { color: #909090; }
+.vis.timeline .item.gpoint { color: #D34836; }
+.vis.timeline .item.tpoint { color: #4099FF; }
+.vis.timeline .item.fpoint { color: #3B5998; }
+
+.vis.timeline .item.dot {
+  position: absolute;
+  padding: 0;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: inherit;
+}
+
+.vis.timeline .item.range,
+.vis.timeline .item.rangeoverflow{
+  border-style: solid;
+  border-radius: none;
+  box-sizing: border-box;
+}
+
+.vis.timeline .item.range .content,
+.vis.timeline .item.rangeoverflow .content {
+  position: relative;
+  display: inline-block;
+}
+
+.vis.timeline .item.range .content {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.vis.timeline .item.line {
+  padding: 0;
+  position: absolute;
+  width: 0;
+  border-left-width: none;
+  border-left-style: solid;
+}
+
+.vis.timeline .item .content {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.vis.timeline .item .delete {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  right: -24px;
+  cursor: pointer;
+}
+
+.vis.timeline .item.range .drag-left,
+.vis.timeline .item.rangeoverflow .drag-left {
+  position: absolute;
+  width: 24px;
+  height: 100%;
+  top: 0;
+  left: -4px;
+
+  cursor: w-resize;
+  z-index: 10000;
+}
+
+.vis.timeline .item.range .drag-right,
+.vis.timeline .item.rangeoverflow .drag-right {
+  position: absolute;
+  width: 24px;
+  height: 100%;
+  top: 0;
+  right: -4px;
+
+  cursor: e-resize;
+  z-index: 10001; /* a little higher z-index than .drag-left */
+}
+
+.vis.timeline .timeaxis {
+  position: relative;
+  overflow: hidden;
+}
+
+.vis.timeline .timeaxis.foreground {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.vis.timeline .timeaxis.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vis.timeline .timeaxis .text {
+  position: absolute;
+  color: #fff;
+  padding: 3px;
+  white-space: nowrap;
+}
+
+.vis.timeline .timeaxis .text.measure {
+  position: absolute;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  visibility: hidden;
+}
+
+.vis.timeline .timeaxis .grid.vertical {
+  position: absolute;
+  width: 0;
+  border-right: none;
+}
+
+.vis.timeline .timeaxis .grid.minor {
+  border-color: #e5e5e5;
+}
+
+.vis.timeline .timeaxis .grid.major {
+  border-color: #bfbfbf;
+}
+
+.vis.timeline .currenttime {
+  background-color: #FF7F7F;
+  width: 2px;
+  z-index: 1;
+}
+.vis.timeline .customtime {
+  background-color: #6E94FF;
+  width: 2px;
+  cursor: move;
+  z-index: 1;
+}
+.vis.timeline.root {
+  -webkit-transition: height .4s ease-in-out;
+  transition:         height .4s ease-in-out;
+}
+
+.vis.timeline .vispanel {
+  -webkit-transition: height .4s ease-in-out, top .4s ease-in-out;
+  transition:         height .4s ease-in-out, top .4s ease-in-out;
+}
+
+.vis.timeline .axis {
+  -webkit-transition: top .4s ease-in-out;
+  transition:         top .4s ease-in-out;
+}
+
+// get animation working nicely
+
+.vis.timeline .item {
+  -webkit-transition: top .4s ease-in-out;
+  transition:         top .4s ease-in-out;
+}
+
+.vis.timeline .item.line {
+  -webkit-transition: height .4s ease-in-out, top .4s ease-in-out;
+  transition:         height .4s ease-in-out, top .4s ease-in-out;
+}

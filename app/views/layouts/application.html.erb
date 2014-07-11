@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>timetrain</title>
+	  <%= favicon_link_tag 'favicon.ico' %>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= stylesheet_link_tag "vis", media: "all" %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+    </script>
+    <script async src="https://platform.twitter.com/widgets.js"></script>
+
+	<%= csrf_meta_tags %>
+	</head>
+	<body>
+
+	<%= yield %>
+
+	</body>
+<!-- Footer -->
+  <div id="footer">
+    <p>&copy 2014 timetrain   | 
+      <a href="#">About</a>   | 
+      <a href="#">Contact</a> | 
+      <a href="#">Help</a>
+    </p>
+  </div>
+
+  <% if current_member %>
+
+  </div>
+
+    <div class="signout">
+        <ul>
+          <li>
+            <%= image_tag(current_member.img_url, class: "prof_img") %>
+            <ul>
+              <li><%= current_member.username %></li>
+              <li><%= link_to "Social sign up", members_social_sign_up_path, :method => :get %></li>
+              <li><%= link_to "Sign out", destroy_member_session_path, :method => :delete %></li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+
+  <% end %>
+</html>
