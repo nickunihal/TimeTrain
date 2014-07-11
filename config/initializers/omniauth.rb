@@ -4,3 +4,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   			scope: 'plus.login',  access_type: 'offline',  request_visible_actions: 'BuyActivity'
 
 end
+OmniAuth.config.on_failure = Proc.new { |env|
+  OmniAuth::FailureEndpoint.new(env).redirect_to_failure
+}

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/members/update_timeline' => 'home#update_timeline'
   get '/auth/twitter/callback' => 'home#connect_twitter'
   get '/auth/google_oauth2/callback' => 'home#connect_gplus'
+  get '/auth/failure' => 'members#social_sign_up'
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

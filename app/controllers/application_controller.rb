@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   	members_timeline_path
   end
 
+  def failure
+    redirect_to members_social_sign_up_path
+  end
+
 end
