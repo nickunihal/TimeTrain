@@ -48,7 +48,7 @@
     <% end %>
     <% current_member.twitter_models.each do |post| %>
       var itemt<%= post.id %> = '<a class="dotlabel" onclick="showpost(\'t<%= post.id %>\');">G</a>';
-    <% end %>
+      <% end %>
    
    
     // DOM element where the Timeline will be attached
@@ -60,7 +60,7 @@
         {id: <%= post.id %>, content: itemg<%= post.id %>, start: '<%= post.create_date %>', type: 'gpoint'},
       <% end %>
       <% current_member.twitter_models.each do |post| %>
-          {id: <%= 100+post.id %>, content: itemt<%= post.id %>, start: '<%= post.create_date.to_s[0...10]+ "T" + 
+          {id: <%= 1000+post.id %>, content: itemt<%= post.id %>, start: '<%= post.create_date.to_s[0...10]+ "T" + 
                                                                     post.create_date.to_s[11...19] + "Z" %>', type: 'tpoint'},
       <% end %>
     ]);

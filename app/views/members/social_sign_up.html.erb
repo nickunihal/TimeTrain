@@ -1,44 +1,36 @@
 
-  
-  <h1><%= image_tag("logo_white.png", class: "logo") %></h1>
-  <div id="container">
-    <div class="notice">
-      <% if @user.twitter_id.blank? || @user.gplus_id.blank? %>
-        You may connect your accounts now
-      <% else %>
-        You can now continue to timetrain.
-      <% end %>
-    </div></br>    
-    <% if @user.twitter_id.blank? %>
-      <a href="/auth/twitter" class="tt twitter">Connect Twitter
+<h1><%= image_tag("logo_white.png", class: "logo") %></h1>
+<div id="container">
+  <div class="notice">
+    <% if @user.twitter_id.blank? || @user.gplus_id.blank? %>
+      You may connect your accounts now
     <% else %>
-      <a href="#" class="tt twitterx">
-      &#10004 Twitter Connected
-    <% end %>  
+      You can now continue to timetrain.
+    <% end %>
+  </div></br>    
+  <% if @user.twitter_id.blank? %>
+    <a href="/auth/twitter" class="tt twitter">Connect Twitter
+  <% else %>
+    <a href="#" class="tt twitterx">
+    &#10004 Twitter Connected
+  <% end %>  
       <span class="icons twitter"></span>
     </a>
 
-    <% if @user.gplus_id.blank? %>
-      <a href="/auth/google_oauth2" class="tt gplus">Connect Google+
-    <% else %>
-      <a href="#" class="tt gplusx">
-      &#10004 Google+ Connected
-    <% end %>  
+  <% if @user.gplus_id.blank? %>
+    <a href="/auth/google_oauth2" class="tt gplus">Connect Google+
+  <% else %>
+    <a href="#" class="tt gplusx">
+    &#10004 Google+ Connected
+  <% end %>  
       <span class="icons gplus"></span>
     </a>      
-      <!-- facebook button currently not approved.
-      <a href="#" class="tt facebook">
-        Connect Facebook
-        <span class="icons facebook"></span>
-      </a>
-      -->          
-    <% if @user.twitter_id.blank? && @user.gplus_id.blank? %>
-      <button disabled>Complete sign up</button>
-    <% else %>
-      <a href="/members/timeline">
+  <% if @user.twitter_id.blank? && @user.gplus_id.blank? %>
+    <button disabled>Complete sign up</button>
+  <% else %>
+    <a href="/members/timeline">
       <button>Continue</button>
-      </a>
-    <% end %>
-  </div>
+    </a>
+  <% end %>
 </div>
 
