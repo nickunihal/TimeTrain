@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   end
 
   def update_timeline
+#   current_member.refresh_token_if_expired
     Member.update_records(current_member)
     redirect_to members_timeline_path
   end
@@ -40,7 +41,7 @@ class HomeController < ApplicationController
     current_member.img_url = auth.info.image
     current_member.gplus_refresh_token = auth.credentials.refresh_token
     current_member.gplus_token_expires_at = auth.credentials.expires_at
-	  current_member.save
+	  current_member.saveq
 	  GoogleModel.store_urls(current_member)
 	  redirect_to members_social_sign_up_path	
   end
