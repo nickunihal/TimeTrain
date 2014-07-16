@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   end
 
   def update_timeline
+#   current_member.refresh_token_if_expired
     Member.update_records(current_member)
     redirect_to members_timeline_path
   end
