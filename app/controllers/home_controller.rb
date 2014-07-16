@@ -43,7 +43,7 @@ class HomeController < ApplicationController
     end
     current_member.gplus_refresh_token = auth.credentials.refresh_token
     current_member.gplus_token_expires_at = auth.credentials.expires_at
-	  current_member.saveq
+	  current_member.save
 	  GoogleModel.store_urls(current_member)
 	  redirect_to members_social_sign_up_path	
   end
