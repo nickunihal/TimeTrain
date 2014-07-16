@@ -9,7 +9,7 @@ class TwitterModel < ActiveRecord::Base
 	    config.access_token_secret = user.twitter_secret
 	  end
     user.twitter_models.delete_all unless user.twitter_models.last.blank? 
-	  tweets = client.user_timeline 
+	  tweets = client.user_timeline
   	tweets.each do |item|
     	@twitter_user = TwitterModel.new
    	  @twitter_user.urls =  item.url.to_s
