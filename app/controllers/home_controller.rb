@@ -36,8 +36,10 @@ class HomeController < ApplicationController
 	  auth = request.env["omniauth.auth"]
 	  current_member.gplus_id = auth["uid"]
     current_member.gplus_token = auth.credentials.token
-    current_member.username = auth.info.name
-    current_member.img_url = auth.info.image
+    if auth.info.image.present?
+      current_member.username = auth.info.name
+      current_member.img_url = auth.info.image
+    end
     current_member.gplus_refresh_token = auth.credentials.refresh_token
     current_member.gplus_token_expires_at = auth.credentials.expires_at
 	  current_member.save

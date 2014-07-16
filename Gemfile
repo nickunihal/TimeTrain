@@ -31,6 +31,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'twitter'
 gem 'google_plus'
+gem 'rest-client'
 
 
 group :development do
