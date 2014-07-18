@@ -16,8 +16,8 @@ class Member < ActiveRecord::Base
   end
 
   def token_expired?
-    expiry = Time.at(self.gplus_token_expires_at.to_i) 
-    if expiry < Time.now 
+  #  expiry = Time.at(self.gplus_token_expires_at.to_i) 
+    #if expiry < Time.now 
       data = {
               client_id: '476602585408-3fiklaclekbinfmbd2lsdjcur1u21ril.apps.googleusercontent.com',
               client_secret: 'RX-7Mq_SXT1DJSJsYJtLj6a4',
@@ -28,10 +28,12 @@ class Member < ActiveRecord::Base
       if @response["access_token"].present?
         self.gplus_token = @response["access_token"]
         self.gplus_token_expires_at = @response["expires_in"]
-        self.username = "updated"
         self.save
       end
+    rescue
+      #rescue from bad connection
     end
+   # end
   end
   
 end
