@@ -28,9 +28,11 @@ class Member < ActiveRecord::Base
       if @response["access_token"].present?
         self.gplus_token = @response["access_token"]
         self.gplus_token_expires_at = @response["expires_in"]
-        self.username = "updated"
         self.save
       end
+    rescue
+      #rescue from bad connection
+    end
    # end
   end
   
