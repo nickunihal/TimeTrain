@@ -33,7 +33,7 @@ class Member < ActiveRecord::Base
     rescue
       #rescue from bad connection
       #google refresh token 
-    end
+   # end
    # end
   end
   
