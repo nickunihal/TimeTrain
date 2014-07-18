@@ -7,6 +7,7 @@ class Member < ActiveRecord::Base
   has_many :twitter_models , dependent: :destroy
   has_many :google_models , dependent: :destroy
 
+  #update authorised models (google plus and twitter)
   def self.update_records (user)
   	TwitterModel.store_urls(user) if user.twitter_id.present? 
     if user.gplus_id.present?
@@ -15,6 +16,7 @@ class Member < ActiveRecord::Base
     end
   end
 
+  #if google access token is expired, fetches a new one
   def token_expired?
     expiry = Time.at(self.gplus_token_expires_at.to_i) 
     if expiry < Time.now 
