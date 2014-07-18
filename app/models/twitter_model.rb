@@ -1,6 +1,7 @@
 class TwitterModel < ActiveRecord::Base
   belongs_to :member
 
+  #Stores url of all posts to database
   def self.store_urls(user)
   	client = Twitter::REST::Client.new do |config|
 	    config.consumer_key        = 'KFmY7FZfHs4nPCsuerXj61isy'
@@ -8,6 +9,8 @@ class TwitterModel < ActiveRecord::Base
 	    config.access_token        = user.twitter_token
 	    config.access_token_secret = user.twitter_secret
 	  end
+
+    #Checks for previous entries
     user.twitter_models.delete_all unless user.twitter_models.last.blank? 
 	  tweets = client.user_timeline
   	tweets.each do |item|
