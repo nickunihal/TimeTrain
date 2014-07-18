@@ -28,6 +28,8 @@ class Member < ActiveRecord::Base
       self.gplus_token_expires_at = @response["expires_in"]
       self.save
     end
+  rescue
+    redirect_to members_timeline_path
   end
   
 end
