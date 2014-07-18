@@ -4,12 +4,13 @@ class HomeController < ApplicationController
     @member = current_member
   end
 
+  #refreshes timeline view
   def update_timeline
-#   current_member.refresh_token_if_expired
     Member.update_records(current_member)
     redirect_to members_timeline_path
   end
 	
+  #root page - checks if a user is already logged in or not
   def index
   	if current_member
   		redirect_to members_timeline_path
@@ -18,8 +19,8 @@ class HomeController < ApplicationController
   	end
   end
 
+  #Link twitter account with timetrain account
   def connect_twitter
-    
     auth = request.env["omniauth.auth"]
     current_member.twitter_token = auth["credentials"]["token"]
     current_member.twitter_secret = auth["credentials"]["secret"]
@@ -33,6 +34,7 @@ class HomeController < ApplicationController
 	  redirect_to members_social_sign_up_path
   end
 
+  #Link google plus account with timetrain account
   def connect_gplus
 	  auth = request.env["omniauth.auth"]
 	  current_member.gplus_id = auth["uid"]
